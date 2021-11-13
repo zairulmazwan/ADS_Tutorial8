@@ -3,6 +3,8 @@ import java.util.Hashtable;
 import java.util.LinkedList;
 import java.util.Queue;
 
+//import Tree.BinaryTree.Node;
+
 public class BinaryTree {
 
 		  Node root;
@@ -41,13 +43,11 @@ public class BinaryTree {
 			    this.root = addRecursive(root, value);
 			}
 			
-			public static BinaryTree createBinaryTree(Hashtable<Integer, String> data) {
+			public static BinaryTree createBinaryTree(int [] data) {
 			    BinaryTree bt = new BinaryTree();
-			    
-			    Enumeration enu = data.keys();
-			    
-			    while(enu.hasMoreElements()) {
-			    	bt.add((int) enu.nextElement());
+			   
+			    for (int x : data) {
+			    	bt.add(x);
 			    }
 			    return bt;
 			}
@@ -114,18 +114,18 @@ public class BinaryTree {
 		    
 		    //Depth First Search: Root=>Left=>Right
 		    public void traversePreOrder(Node node) {
-		       
+		    	
 		    }
 		    
 		    
 		    //Left=>Right=>Node
 		    public void traversePostOrder(Node node) {
-		       
+		    	
 		    }
 		    
 		    //Breadth-First Search: visit all the nodes present at the same level one-by-one from left to right and then move to the next level to visit all the nodes of that level.
 		    public void traverseLevelOrder() {
-		       
+		    	
 		    }
 		    
 		    private void visit(int value) {
@@ -136,20 +136,9 @@ public class BinaryTree {
 		
 		BinaryTree bt = new BinaryTree();
 	
-		Hashtable<Integer, String> staff = new Hashtable<Integer, String> (); 
-		staff.put(8,"John");
-		staff.put(3, "Steve");
-		staff.put(9, "Zairul");
-		staff.put(12, "Prejal");
-		staff.put(7, "Mehmet");
-		staff.put(8, "Lily");
-		staff.put(11, "Lee");
-		staff.put(2, "Mazwan");
-		staff.put(15, "Suzy");
+		int [] data = {57,20,68,15,21,65,80,60,67,70,85};
 		
-		System.out.println(staff);
-		
-		bt = createBinaryTree(staff);
+		bt = createBinaryTree(data);
 		System.out.println("==Pre-order==");
 		bt.traversePreOrder(bt.root);
 		System.out.println("\n==Level Order==");
